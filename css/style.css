@@ -43,7 +43,11 @@
 }
 
 .lightblue{
-    background-color: lightblue;
+    background-color: #8edafc;
+}
+
+.lightgrey{
+    background-color: #eaeaea;
 }
 
 
@@ -54,8 +58,17 @@
     width: 30%;
 }
 
-.chat{
+.headerleft{
+    border-right: 1px solid grey;
+}
+
+.allChat{
     height: 700px;
+    overflow: hidden;
+    overflow: scroll;
+}
+
+.chat{
 }
 
 /* lato destro */
