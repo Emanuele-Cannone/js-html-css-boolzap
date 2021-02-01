@@ -4,64 +4,64 @@
     box-sizing: border-box;
 }
 
-
+/* contenitore principale */
 .contenitore{
     background-image: linear-gradient(to bottom, #009688 15vh,
     #dddbd1 15vh, #d2dbdc 100%);
     height: 100vh;
-}
-
-
-
-.debug{
-    height: 80px;
-    background-color: orange;
-}
-
-.debugUno{
-    height: 80px;
-    background-color: blue;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
 }
 
 .contenitore::after {
-content: "";
-display: table;
-clear: both;
+    content: "";
+    display: table;
+    clear: both;
 }
 
-.sideleft{
+
+/* classi di debug che DEVI TOGLIERE DOPO */
+.debug{
+    height: 80px;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.pink{
+    background-color: pink;
+}
+
+.lightyellow{
+    background-color: lightyellow;
+}
+
+.lightblue{
+    background-color: lightblue;
+}
+
+
+
+/* lato sinistro */
+.leftside{
     float: left;
     width: 30%;
 }
 
-.sideright{
+.chat{
+    height: 700px;
+}
+
+/* lato destro */
+.rightside{
     float: left;
     width: 50%;
 }
 
 
-/*
-
-.message{
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-.verde{
-    background-color: #009688;
-}
-
-.lightgrey{
-    background-color: #dcdbd2;
-}
-
-.lineup{
-    height: 100px;
-}
-
-.linedown{
-    height: 800px;
-} */
