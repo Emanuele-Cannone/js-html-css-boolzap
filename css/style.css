@@ -2,6 +2,23 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* riutilizzabili */
+.capitalize{
+    text-transform: capitalize;
+}
+
+li{
+    list-style: none;
+}
+
+img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
 
 /* contenitore principale */
@@ -54,32 +71,117 @@ body{
 }
 
 
-
 /* lato sinistro */
 .leftside{
     float: left;
     width: 30%;
     height: 100%;
-    background-color: pink;
+    background-color: #fff;
 }
 
+
+/* headerleft */
 .headerleft{
     border-right: 1px solid grey;
     height: 80px;
+    display: flex;
 }
 
+.titolo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+}
+
+.nomeutente{
+    display: flex;
+    align-items: center;
+}
+
+.nomeutente span{
+    padding-left: 3px;
+}
+
+.icone i{
+    padding-right: 7px;
+    color: #b1b1b1;
+    font-size: 20px;
+}
+
+
+/* notifiche */
 .notifiche{
     height: 90px;
+    display: flex;
+    align-items: center;
 }
 
+.campanello{
+    padding: 0 10px;
+}
+
+.campanello i{
+    font-size: 25px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 50%;
+    color: #8edafc;
+}
+
+.notifiche a{
+    color: #4f7485;
+}
+
+
+/* ricerca */
 .ricerca{
-    height: 50px;
+    height: 40px;
+    border: 5px solid #fafafa;
+    display: flex;
 }
 
+button{
+    width: 50px;
+    background-color: #ffffff;
+    border: 1px solid #fafafa;
+}
+
+button i{
+    color: #b6b9c3;
+    font-size: 15px;
+}
+
+input{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #fafafa;
+    color: #b6b9c3;
+}
+
+
+/* allChat */
 .allChat{
     height: calc(100% - 90px - 80px - 50px) ;
     overflow-y: scroll;
 }
+
+.chat{
+    display: flex;
+    border-bottom: 1px solid  #fafafa;
+}
+
+.chat img{
+    margin: 0 10px;
+    align-self: center;
+}
+
+.chat span{
+    padding-top: 15px;
+}
+
+
 
 /* lato destro */
 .rightside{
@@ -90,23 +192,23 @@ body{
 }
 
 .headerright{
-    
+    height: 80px;
 }
 
 .conversazione{
     background-image: url(../img/mine.jpg);
     overflow: hidden;
-    flex-grow: 1;
+    height: calc(100% - 80px - 80px);
+    overflow-y: scroll;
 }
 
 .conversazione ul li{
     overflow: scroll;
-    
 }
 
 .messaggio{
     background-color: green;
-    height: 50px;
+    height: 80px;
 }
 
 

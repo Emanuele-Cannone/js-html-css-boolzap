@@ -3,24 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
 </head>
 <body>
     <div class="contenitore">
+
+        <!-- leftside -->
         <div class="leftside">
-            <div class="headerleft lightgrey">qui va l'header della parte sx</div>
-            <div class="notifiche lightblue">qui va il riquadro delle notifiche</div>
-            <div class="ricerca orange">qui va l'input di ricerca</div>
-            <div class="allChat pink">
+
+            <!-- headerleft -->
+            <div class="headerleft lightgrey">
+                <div class="titolo">
+                    <div class="nomeutente">
+                        <img src="img/emanuele.jpg" alt="mioAvatar"> 
+                        <span class="capitalize">nome utente</span> 
+                    </div>
+                    <div class="icone">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-comment-alt"></i>
+                        <i class="fas fa-ellipsis-v"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- notifiche -->
+            <div class="notifiche lightblue">
+                <div class="campanello">
+                    <i class="fas fa-bell-slash"></i>
+                </div>
+                <div>
+                    <p>Ricevi notifiche di nuovi messaggi</p>
+                    <a href="#">Attiva notifiche desktop</a>
+                </div>
+            </div>
+
+            <!-- ricerca -->
+            <div class="ricerca">
+                <button><i class="fas fa-search"></i></button>
+                <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+            </div>
+
+            <!-- allChat -->
+            <div class="allChat">
                 <ul>
-                    <li class="prima chat debug blue">prima chat</li>
-                    <li class="seconda chat debug lightgrey">seconda chat</li>
-                    <li class="terza chat debug lightblue">terza chat</li>
-                    <li class="quarta chat debug orange">quarta chat</li>
+                    <li class="prima chat debug">
+                        <img src="img/jack.jpg" alt="mioAvatar">
+                        <span class="capitalize">nome utente</span>
+                    </li>
+                    <li class="seconda chat debug ">
+                        <img src="img/papaya.jpg" alt="mioAvatar">
+                        <span class="capitalize">nome utente</span>
+                    </li>
+                    <li class="terza chat debug ">
+                        <img src="img/dave.png" alt="mioAvatar">
+                        <span class="capitalize">nome utente</span>
+                    </li>
+                    <li class="quarta chat debug ">
+                        <img src="img/yuri.jpg" alt="mioAvatar">
+                        <span class="capitalize">nome utente</span>
+                    </li>
+                    <li class="quinta chat debug ">
+                        <img src="img/avatar_4.jpg" alt="mioAvatar">
+                        <span class="capitalize">Luisa</span>
+                    </li>
+                    <li class="sesta chat debug ">
+                        <img src="img/avatar_4.jpg" alt="mioAvatar">
+                        <span class="capitalize">Luisa</span>
+                    </li>
+                
                 </ul>
             </div>
         </div>
+
+        <!-- rightside -->
         <div class="rightside">
             <div class="headerright debug lightgrey">
                 qui va l'header della parte dx
