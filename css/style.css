@@ -233,13 +233,18 @@ button i{
 }
 
 .messaggio i{
-    font-size: 25px;
+    font-size: 20px;
     margin: 0 10px;
+    color: #6b7376;
 }
 
 .messaggio input{
     flex-grow: 1;
     height: 40px;
+    border-radius: 20px;
+    border: 1px solid #afafaf;
+    font-size: 18px;
+    outline: none;
 }
 
 .messaggio input::placeholder{
