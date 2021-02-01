@@ -5,10 +5,13 @@
 }
 
 /* contenitore principale */
-.contenitore{
+body{
+    height: 100vh;
     background-image: linear-gradient(to bottom, #009688 15vh,
     #dddbd1 15vh, #d2dbdc 100%);
-    height: 100vh;
+}
+.contenitore{
+    height: 95%;
     display: flex;
     justify-content: center;
     padding-top: 30px;
@@ -56,25 +59,55 @@
 .leftside{
     float: left;
     width: 30%;
+    height: 100%;
+    background-color: pink;
 }
 
 .headerleft{
     border-right: 1px solid grey;
+    height: 80px;
+}
+
+.notifiche{
+    height: 90px;
+}
+
+.ricerca{
+    height: 50px;
 }
 
 .allChat{
-    height: 700px;
-    overflow: hidden;
-    overflow: scroll;
-}
-
-.chat{
+    height: calc(100% - 90px - 80px - 50px) ;
+    overflow-y: scroll;
 }
 
 /* lato destro */
 .rightside{
     float: left;
     width: 50%;
+    display: flex;
+    flex-direction: column;
 }
+
+.headerright{
+    
+}
+
+.conversazione{
+    background-image: url(../img/mine.jpg);
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.conversazione ul li{
+    overflow: scroll;
+    
+}
+
+.messaggio{
+    background-color: green;
+    height: 50px;
+}
+
 
 
