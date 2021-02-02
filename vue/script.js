@@ -19,8 +19,8 @@ var app = new Vue({
             alt: 'papaya'
             },
             {
-            src: 'img/dave.jpg',
-            alt: 'dave'
+            src: 'img/davide.jpg',
+            alt: 'davide'
             },
             {
             src: 'img/yuri.jpg',
