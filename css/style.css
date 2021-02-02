@@ -74,7 +74,7 @@ body{
 /* lato sinistro */
 .leftside{
     float: left;
-    width: 30%;
+    width: 25%;
     height: 100%;
     background-color: #fff;
 }
@@ -92,7 +92,7 @@ body{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 5px;
+    padding: 0 20px;
 }
 
 .nomeutente{
@@ -101,7 +101,7 @@ body{
 }
 
 .nomeutente span{
-    padding-left: 3px;
+    padding-left: 15px;
 }
 
 .icone i{
@@ -172,6 +172,11 @@ button i{
     border-bottom: 1px solid  #fafafa;
 }
 
+.chat:hover{
+    background-color: rgba(168, 168, 168, 0.2);
+    cursor: pointer;
+}
+
 .chat img{
     margin: 0 10px;
     align-self: center;
@@ -202,7 +207,7 @@ button i{
 .chatattuale{
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    padding-left: 15px;
 }
 
 .ultimoaccesso{
@@ -221,6 +226,11 @@ button i{
 
 .conversazione ul li{
     overflow: scroll;
+    font-size: 15px;
+    background-color: #d4fdc3;
+    border-radius: 7px;
+    margin: 20px 0;
+    padding: 7px;
 }
 
 
