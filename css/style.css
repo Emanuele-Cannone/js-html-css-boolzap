@@ -227,26 +227,26 @@ button i{
     overflow: hidden;
     height: calc(100% - 80px - 80px);
     overflow-y: scroll;
-    /* display: flex;
-    flex-direction: column; */
+    /* display: flex; */
 }
 
 .conversazione ul li{
-    overflow: scroll;
     font-size: 15px;
     border-radius: 7px;
-    margin: 20px 0;
+    margin-top: 10px;
     padding: 7px;
 }
 
 .inviato{
     background-color: #dcf8c7;
-    display: flex;
-    justify-content: flex-end;
+    float: right;
+    clear: both;
 }
 
 .ricevuto{
     background-color: #fff;
+    float: left;
+    clear: both;
 }
 
 
