@@ -102,7 +102,7 @@
             <div class="messaggio">
                 <div><i class="far fa-smile" title="Emoji"></i></div>
                 <div><i class="fas fa-paperclip" title="Allega"></i></div>
-                <input type="text" placeholder="Scrivi un messaggio" v-model="mexChat">
+                <input type="text" placeholder="Scrivi un messaggio" v-model="mexChat" @keyup.enter="scambioMessaggi(utenteSelezionato)">
                 <div class="wFix" v-if="mexChat >= 0"><i class="fas fa-microphone" title="Registra messaggio"></i></div>
                 <div class="wFix" v-else><i class="fas fa-paper-plane" @click="scambioMessaggi(utenteSelezionato)" title="Invia"></i></div>
             </div>
