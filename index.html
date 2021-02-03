@@ -52,8 +52,13 @@
                 <ul>
 
                     <li class="chat debug" v-for="(chatAttive, index) in contatti" @click="visualizzaChat(index)">
-                        <img :src="chatAttive.immagine" :alt="chatAttive.nome">
-                        <span class="capitalize">{{chatAttive.nome}}</span>
+                        <div class="partesx">
+                            <img :src="chatAttive.immagine" :alt="chatAttive.nome">
+                        </div>
+                        <div class="partedx">
+                            <div class="capitalize">{{contatti[index].nome}}</div>
+                            <div class="lastMex"><span><i class="fas fa-check"></i></i></span> FISSATO IN HTML</div>
+                        </div>
                     </li>
                 
                 </ul>
@@ -68,9 +73,9 @@
             <div class="headerright">
                 <div class="titolo">
                     <div class="nomeutente">
-                        <img :src="image" :alt="name">
+                        <img :src="contatti[utenteSelezionato].immagine" :alt="contatti[utenteSelezionato].nome">
                         <div class="chatattuale">
-                            <div class="capitalize">{{name}}</div>
+                            <div class="capitalize">{{contatti[utenteSelezionato].nome}}</div>
                             <div class="ultimoaccesso">Ultimo accesso oggi alle</div>
                         </div>
                     </div>
@@ -84,12 +89,11 @@
             <!-- conversazione -->
             <div class="conversazione">
                 
-                <ul v-for="(element, index) in contatti" v-if="element.visible" class="width90">
-                    <li v-for="(ultimaChat, index) in element.conversazioni" class="mex" :class="(ultimaChat.tipo == 'inviato') ? 'inviato' : 'ricevuto' ">{{ultimaChat.testo}} 
-                        <div class="orario">{{ultimaChat.data}}</div>
+                <ul v-for="(element, index) in contatti[utenteSelezionato].conversazioni" class="width90">
+                    <li class="mex" :class="(element.tipo == 'inviato') ? 'inviato' : 'ricevuto' ">{{element.testo}} 
+                        <div class="orario">{{element.data}}<span><i class="fas fa-check"></i></i></div>
                     </li>
                 </ul>
-                <ul v-else></ul>
                 
             </div>
 

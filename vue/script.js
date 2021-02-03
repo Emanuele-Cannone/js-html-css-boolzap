@@ -15,6 +15,7 @@ var app = new Vue({
         visible: false,
         image: 'img/jack.jpg',
         name: 'giacomo',
+        utenteSelezionato: 0,
         contatti: [
             {
             immagine: 'img/jack.jpg',
@@ -41,7 +42,7 @@ var app = new Vue({
                     testo: 'quarto messaggio giacomo',
                     tipo: 'ricevuto'
                 }
-            ]
+                ]
             },
             {
             immagine: 'img/papaya.jpg',
@@ -68,7 +69,7 @@ var app = new Vue({
                     testo: 'quarto messaggio papaya',
                     tipo: 'ricevuto'
                 }
-            ]
+                ]
             },
             {
             immagine: 'img/davide.jpg',
@@ -95,7 +96,7 @@ var app = new Vue({
                     testo: 'quarto messaggio davide',
                     tipo: 'ricevuto'
                 }
-            ]
+                ]
             },
             {
             immagine: 'img/yuri.jpg',
@@ -122,7 +123,7 @@ var app = new Vue({
                     testo: 'quarto messaggio yuri',
                     tipo: 'ricevuto'
                 }
-            ]
+                ]
             },
             {
             immagine: 'img/cristiano.jpg',
@@ -149,7 +150,7 @@ var app = new Vue({
                     testo: 'quarto messaggio cristiano',
                     tipo: 'ricevuto'
                 }
-            ]
+                ]
             },
             {
             immagine: 'img/tina.jpg',
@@ -176,29 +177,14 @@ var app = new Vue({
                     testo: 'quarto messaggio tina',
                     tipo: 'ricevuto'
                 }
-            ]
+                ]
             },
         ]
     },
     methods:{
 
         visualizzaChat(index){
-            this.contatti.forEach(element => {
-                if (element.visible == true) {
-                    element.visible = false;
-                }
-            });
-            this.contatti[index].visible = true;
-            this.detailChat()
-        },
-        detailChat(){
-            this.contatti.forEach(element => {
-                if (element.visible == true) {
-                    this.name = element.nome;
-                    this.image = element.immagine;
-                }
-                return this.name, this.image;
-            });
-        }        
-    },
+            this.utenteSelezionato = index;
+        }
+    }
 });

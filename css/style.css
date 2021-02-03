@@ -196,15 +196,24 @@ button i{
     cursor: pointer;
 }
 
-.chat img{
+.partesx{
+    display: flex;
     margin: 0 10px;
-    align-self: center;
+    align-items: center;
 }
 
-.chat span{
-    padding-top: 15px;
+.partedx{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 
+.lastMex{
+    padding-top: 5px;
+    font-size: 14px;
+    color: #b1b1b1;
+}
 
 
 /* rightside */
@@ -280,6 +289,11 @@ button i{
     text-align: right;
     color: #95959598;
 }
+
+.orario > span{
+    padding-left: 5px;
+}
+
 
 
 /* messaggio */
