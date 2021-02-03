@@ -49,8 +49,8 @@
 
             <!-- allChat -->
             <div class="allChat">
-                <ul>
 
+                <ul>
                     <li class="chat debug" v-for="(chatAttiva, index) in contatti" @click="visualizzaChat(index)">
                         <div class="partesx">
                             <img :src="chatAttiva.immagine" :alt="chatAttiva.nome">
@@ -60,8 +60,8 @@
                             <div class="lastMex"><span><i class="fas fa-check"></i></span>{{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}</div>
                         </div>
                     </li>
-                
                 </ul>
+
             </div>
 
         </div>
@@ -76,7 +76,8 @@
                         <img :src="contatti[utenteSelezionato].immagine" :alt="contatti[utenteSelezionato].nome">
                         <div class="chatattuale">
                             <div class="capitalize">{{contatti[utenteSelezionato].nome}} boolean</div>
-                            <div class="ultimoaccesso">Ultimo accesso oggi alle</div>
+                            <div v-if="scrivendo" class="ultimoaccesso">Sta scrivendo...</div>
+                            <div v-else class="ultimoaccesso">Ultimo accesso oggi alle</div>
                         </div>
                     </div>
                     <div class="icone">
@@ -103,7 +104,7 @@
                 <div><i class="fas fa-paperclip" title="Allega"></i></div>
                 <input type="text" placeholder="Scrivi un messaggio" v-model="mexChat">
                 <div class="wFix" v-if="mexChat >= 0"><i class="fas fa-microphone" title="Registra messaggio"></i></div>
-                <div class="wFix" v-else><i class="fas fa-paper-plane" title="Invia"></i></div>
+                <div class="wFix" v-else><i class="fas fa-paper-plane" @click="scambioMessaggi(utenteSelezionato)" title="Invia"></i></div>
             </div>
 
         </div>

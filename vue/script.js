@@ -14,6 +14,7 @@ var app = new Vue({
         searchBar: '',
         visible: false,
         utenteSelezionato: 0,
+        scrivendo: false,
         contatti: [
             {
             immagine: 'img/jack.jpg',
@@ -188,8 +189,31 @@ var app = new Vue({
 
         visualizzaChat(index){
             this.utenteSelezionato = index;
-            console.log(this.contatti[index].conversazioni.length);
-        }
+        },
         
+        scambioMessaggi(index){
+            this.contatti[index].conversazioni.push({
+                data : 99,
+                testo : this.mexChat,
+                tipo : 'inviato'
+            })
+
+            this.mexChat = '';
+
+
+            setTimeout(() => {
+                
+                this.contatti[index].conversazioni.push({
+                    data: 99,
+                    testo: 'ok',
+                    tipo: 'ricevuto'
+                })
+                this.scrivendo = false;
+               
+            }, 2000); 
+
+            this.scrivendo = true;
+
+        },
     }
 });
