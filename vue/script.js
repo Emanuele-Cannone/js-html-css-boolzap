@@ -20,26 +20,26 @@ var app = new Vue({
             nome: 'giacomo',
             visible: true,
             conversazioni: [
-                {
-                    data: '01:00',
-                    testo: 'primo messaggio giacomo',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '02:00',
-                    testo: 'secondo messaggio giacomo',
-                    tipo: 'ricevuto'
-                },
-                {
-                    data: '03:00',
-                    testo: 'terzo messaggio giacomo',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '04:00',
-                    testo: 'quarto messaggio giacomo',
-                    tipo: 'ricevuto'
-                }
+                    {
+                        data: '01:00',
+                        testo: 'primo messaggio giacomo',
+                        tipo: 'inviato'
+                    },
+                    {
+                        data: '02:00',
+                        testo: 'secondo messaggio giacomo',
+                        tipo: 'ricevuto'
+                    },
+                    {
+                        data: '03:00',
+                        testo: 'terzo messaggio giacomo',
+                        tipo: 'inviato'
+                    },
+                    {
+                        data: '04:00',
+                        testo: 'quarto messaggio giacomo',
+                        tipo: 'ricevuto'
+                    }
                 ]
             },
             {

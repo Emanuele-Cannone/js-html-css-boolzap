@@ -51,13 +51,13 @@
             <div class="allChat">
                 <ul>
 
-                    <li class="chat debug" v-for="(chatAttive, index) in contatti" @click="visualizzaChat(index)">
+                    <li class="chat debug" v-for="(chatAttiva, index) in contatti" @click="visualizzaChat(index)">
                         <div class="partesx">
-                            <img :src="chatAttive.immagine" :alt="chatAttive.nome">
+                            <img :src="chatAttiva.immagine" :alt="chatAttiva.nome">
                         </div>
                         <div class="partedx">
-                            <div class="capitalize">{{contatti[index].nome}} boolean</div>
-                            <div class="lastMex"><span><i class="fas fa-check"></i></i></span>{{contatti[index].conversazioni.testo}}</div>
+                            <div class="capitalize">{{chatAttiva.nome}} boolean</div>
+                            <div class="lastMex"><span><i class="fas fa-check"></i></span>{{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}</div>
                         </div>
                     </li>
                 
