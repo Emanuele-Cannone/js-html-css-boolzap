@@ -44,7 +44,7 @@
             <div class="ricerca">
                     <button v-if="searchBar >= 0"><i class="fas fa-search"></i></button>
                     <button v-else><i class="fas fa-arrow-left"></i></button>
-                    <input v-model="searchBar" type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                    <input v-model="searchBar" type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
 
             <!-- allChat -->
@@ -92,7 +92,7 @@
                 
                 <ul v-for="(element, index) in contatti[utenteSelezionato].conversazioni" class="width90">
                     <li class="mex" :class="(element.tipo == 'inviato') ? 'inviato' : 'ricevuto' ">{{element.testo}} 
-                        <div class="orario">{{element.data}}<span><i class="fas fa-check"></i></i></div>
+                        <div class="orario">{{element.data}}<span><i class="fas fa-check"></i></span></div>
                     </li>
                 </ul>
                 
