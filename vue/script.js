@@ -9,31 +9,196 @@
 var app = new Vue({
     el: '.contenitore',
     data: {
+        messaggioVocale: true,
+        mexChat: '',
+        searchBar: '',
+        visible: false,
+        image: 'img/jack.jpg',
+        name: 'giacomo',
         contatti: [
             {
-            src: 'img/jack.jpg',
-            alt: 'giacomo'
+            immagine: 'img/jack.jpg',
+            nome: 'giacomo',
+            visible: true,
+            conversazioni: [
+                {
+                    data: '01:00',
+                    testo: 'primo messaggio giacomo',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '02:00',
+                    testo: 'secondo messaggio giacomo',
+                    tipo: 'ricevuto'
+                },
+                {
+                    data: '03:00',
+                    testo: 'terzo messaggio giacomo',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '04:00',
+                    testo: 'quarto messaggio giacomo',
+                    tipo: 'ricevuto'
+                }
+            ]
             },
             {
-            src: 'img/papaya.jpg',
-            alt: 'papaya'
+            immagine: 'img/papaya.jpg',
+            nome: 'papaya',
+            visible: false,
+            conversazioni: [
+                {
+                    data: '01:00',
+                    testo: 'primo messaggio papaya',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '02:00',
+                    testo: 'secondo messaggio papaya',
+                    tipo: 'ricevuto'
+                },
+                {
+                    data: '03:00',
+                    testo: 'terzo messaggio papaya',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '04:00',
+                    testo: 'quarto messaggio papaya',
+                    tipo: 'ricevuto'
+                }
+            ]
             },
             {
-            src: 'img/davide.jpg',
-            alt: 'davide'
+            immagine: 'img/davide.jpg',
+            nome: 'davide',
+            visible: false,
+            conversazioni: [
+                {
+                    data: '01:00',
+                    testo: 'primo messaggio davide',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '02:00',
+                    testo: 'secondo messaggio davide',
+                    tipo: 'ricevuto'
+                },
+                {
+                    data: '03:00',
+                    testo: 'terzo messaggio davide',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '04:00',
+                    testo: 'quarto messaggio davide',
+                    tipo: 'ricevuto'
+                }
+            ]
             },
             {
-            src: 'img/yuri.jpg',
-            alt: 'yuri'
+            immagine: 'img/yuri.jpg',
+            nome: 'yuri',
+            visible: false,
+            conversazioni: [
+                {
+                    data: '01:00',
+                    testo: 'primo messaggio yuri',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '02:00',
+                    testo: 'secondo messaggio yuri',
+                    tipo: 'ricevuto'
+                },
+                {
+                    data: '03:00',
+                    testo: 'terzo messaggio yuri',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '04:00',
+                    testo: 'quarto messaggio yuri',
+                    tipo: 'ricevuto'
+                }
+            ]
             },
             {
-            src: 'img/cristiano.jpg',
-            alt: 'cristiano'
+            immagine: 'img/cristiano.jpg',
+            nome: 'cristiano',
+            visible: false,
+            conversazioni: [
+                {
+                    data: '01:00',
+                    testo: 'primo messaggio cristiano',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '02:00',
+                    testo: 'secondo messaggio cristiano',
+                    tipo: 'ricevuto'
+                },
+                {
+                    data: '03:00',
+                    testo: 'terzo messaggio cristiano',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '04:00',
+                    testo: 'quarto messaggio cristiano',
+                    tipo: 'ricevuto'
+                }
+            ]
             },
             {
-            src: 'img/tina.jpg',
-            alt: 'tina'
+            immagine: 'img/tina.jpg',
+            nome: 'tina',
+            visible: false,
+            conversazioni: [
+                {
+                    data: '01:00',
+                    testo: 'primo messaggio tina',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '02:00',
+                    testo: 'secondo messaggio tina',
+                    tipo: 'ricevuto'
+                },
+                {
+                    data: '03:00',
+                    testo: 'terzo messaggio tina',
+                    tipo: 'inviato'
+                },
+                {
+                    data: '04:00',
+                    testo: 'quarto messaggio tina',
+                    tipo: 'ricevuto'
+                }
+            ]
             },
         ]
+    },
+    methods:{
+
+        visualizzaChat(index){
+            this.contatti.forEach(element => {
+                if (element.visible == true) {
+                    element.visible = false;
+                }
+            });
+            this.contatti[index].visible = true;
+            this.detailChat()
+        },
+        detailChat(){
+            this.contatti.forEach(element => {
+                if (element.visible == true) {
+                    this.name = element.nome;
+                    this.image = element.immagine;
+                }
+                return this.name, this.image;
+            });
+        }        
     },
 });

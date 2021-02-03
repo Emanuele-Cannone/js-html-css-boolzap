@@ -22,9 +22,9 @@
                         <span class="capitalize">nome utente</span> 
                     </div>
                     <div class="icone">
-                        <i class="fas fa-circle-notch"></i>
-                        <i class="fas fa-comment-alt"></i>
-                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-circle-notch" title="Stato"></i>
+                        <i class="fas fa-comment-alt" title="Nuova chat"></i>
+                        <i class="fas fa-ellipsis-v" title="Menu"></i>
                     </div>
                 </div>
             </div>
@@ -42,21 +42,23 @@
 
             <!-- ricerca -->
             <div class="ricerca">
-                <button><i class="fas fa-search"></i></button>
-                <input type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
+                    <button v-if="searchBar >= 0"><i class="fas fa-search"></i></button>
+                    <button v-else><i class="fas fa-arrow-left"></i></button>
+                    <input v-model="searchBar" type="text" name="" id="" placeholder="Cerca o inizia una nuova chat">
             </div>
 
             <!-- allChat -->
             <div class="allChat">
                 <ul>
 
-                    <li class="chat debug" v-for="chatAttive in contatti">
-                        <img :src="chatAttive.src" :alt="chatAttive.alt">
-                        <span class="capitalize">{{chatAttive.alt}}</span>
+                    <li class="chat debug" v-for="(chatAttive, index) in contatti" @click="visualizzaChat(index)">
+                        <img :src="chatAttive.immagine" :alt="chatAttive.nome">
+                        <span class="capitalize">{{chatAttive.nome}}</span>
                     </li>
                 
                 </ul>
             </div>
+
         </div>
 
         <!-- rightside -->
@@ -66,36 +68,42 @@
             <div class="headerright">
                 <div class="titolo">
                     <div class="nomeutente">
-                        <img src="img/emanuele.jpg" alt="mioAvatar">
+                        <img :src="image" :alt="name">
                         <div class="chatattuale">
-                            <div class="capitalize">nome utente</div>
+                            <div class="capitalize">{{name}}</div>
                             <div class="ultimoaccesso">Ultimo accesso oggi alle</div>
                         </div>
                     </div>
                     <div class="icone">
-                        <i class="fas fa-search"></i>
-                        <i class="fas fa-paperclip"></i>
-                        <i class="fas fa-ellipsis-v"></i>
+                        <i class="fas fa-search" title="Cerca..."></i>
+                        <i class="fas fa-ellipsis-v" title="Menu"></i>
                     </div>
                 </div>
             </div>
 
             <!-- conversazione -->
             <div class="conversazione">
-                <ul class="width70">
-                    <li class="inviato">prima chat</li>
-                    <li class="ricevuto">seconda chat</li>
+                
+                <ul v-for="(element, index) in contatti" v-if="element.visible" class="width90">
+                    <li v-for="(ultimaChat, index) in element.conversazioni" class="mex" :class="(ultimaChat.tipo == 'inviato') ? 'inviato' : 'ricevuto' ">{{ultimaChat.testo}} 
+                        <div class="orario">{{ultimaChat.data}}</div>
+                    </li>
                 </ul>
+                <ul v-else></ul>
+                
             </div>
 
             <!-- messaggio -->
             <div class="messaggio">
-                <div><i class="far fa-smile"></i></div>
-                <div><i class="fas fa-paperclip"></i></div>
-                <input type="text" placeholder="    Scrivi un messaggio">
-                <div><i class="fas fa-microphone"></i></div>
+                <div><i class="far fa-smile" title="Emoji"></i></div>
+                <div><i class="fas fa-paperclip" title="Allega"></i></div>
+                <input type="text" placeholder="Scrivi un messaggio" v-model="mexChat">
+                <div class="wFix" v-if="mexChat >= 0"><i class="fas fa-microphone" title="Registra messaggio"></i></div>
+                <div class="wFix" v-else><i class="fas fa-paper-plane" title="Invia"></i></div>
             </div>
+
         </div>
+        
     </div>
 
     <script src="vue/script.js"></script>
