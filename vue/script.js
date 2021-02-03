@@ -13,8 +13,6 @@ var app = new Vue({
         mexChat: '',
         searchBar: '',
         visible: false,
-        image: 'img/jack.jpg',
-        name: 'giacomo',
         utenteSelezionato: 0,
         contatti: [
             {
@@ -67,6 +65,11 @@ var app = new Vue({
                 {
                     data: '04:00',
                     testo: 'quarto messaggio papaya',
+                    tipo: 'ricevuto'
+                },
+                {
+                    data: '04:00',
+                    testo: 'quinto messaggio papaya',
                     tipo: 'ricevuto'
                 }
                 ]
@@ -185,6 +188,8 @@ var app = new Vue({
 
         visualizzaChat(index){
             this.utenteSelezionato = index;
+            console.log(this.contatti[index].conversazioni.length);
         }
+        
     }
 });

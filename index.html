@@ -56,8 +56,8 @@
                             <img :src="chatAttive.immagine" :alt="chatAttive.nome">
                         </div>
                         <div class="partedx">
-                            <div class="capitalize">{{contatti[index].nome}}</div>
-                            <div class="lastMex"><span><i class="fas fa-check"></i></i></span> FISSATO IN HTML</div>
+                            <div class="capitalize">{{contatti[index].nome}} boolean</div>
+                            <div class="lastMex"><span><i class="fas fa-check"></i></i></span>{{contatti[index].conversazioni.testo}}</div>
                         </div>
                     </li>
                 
@@ -75,7 +75,7 @@
                     <div class="nomeutente">
                         <img :src="contatti[utenteSelezionato].immagine" :alt="contatti[utenteSelezionato].nome">
                         <div class="chatattuale">
-                            <div class="capitalize">{{contatti[utenteSelezionato].nome}}</div>
+                            <div class="capitalize">{{contatti[utenteSelezionato].nome}} boolean</div>
                             <div class="ultimoaccesso">Ultimo accesso oggi alle</div>
                         </div>
                     </div>
