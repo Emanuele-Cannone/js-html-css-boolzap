@@ -53,13 +53,14 @@
             <div class="allChat">
 
                 <ul>
-                    <li class="chat debug" v-for="(chatAttiva, index) in contatti" @click="visualizzaChat(index)">
+                    <li v-if="chatAttiva.visible" class="chat debug" v-for="(chatAttiva, index) in contatti" @click="visualizzaChat(index)">
                         <div class="partesx">
                             <img :src="chatAttiva.immagine" :alt="chatAttiva.nome">
                         </div>
                         <div class="partedx">
-                            <div class="capitalize">{{chatAttiva.nome}} boolean</div>
-                            <div class="lastMex"><span><i class="fas fa-check"></i></span>{{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}</div>
+                            <div class="capitalize">{{chatAttiva.nome}}</div>
+                            <div v-if="scrivendo" class="lastMex">{{chatAttiva[index]}}Sta scrivendo...</div>
+                            <div v-else class="lastMex"><span><i class="fas fa-check"></i></span>{{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}</div>
                         </div>
                     </li>
                 </ul>

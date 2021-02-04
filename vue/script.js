@@ -46,7 +46,7 @@ var app = new Vue({
             {
             immagine: 'img/papaya.jpg',
             nome: 'papaya',
-            visible: false,
+            visible: true,
             conversazioni: [
                 {
                     data: '01:00',
@@ -78,7 +78,7 @@ var app = new Vue({
             {
             immagine: 'img/davide.jpg',
             nome: 'davide',
-            visible: false,
+            visible: true,
             conversazioni: [
                 {
                     data: '01:00',
@@ -105,7 +105,7 @@ var app = new Vue({
             {
             immagine: 'img/yuri.jpg',
             nome: 'yuri',
-            visible: false,
+            visible: true,
             conversazioni: [
                 {
                     data: '01:00',
@@ -132,7 +132,7 @@ var app = new Vue({
             {
             immagine: 'img/cristiano.jpg',
             nome: 'cristiano',
-            visible: false,
+            visible: true,
             conversazioni: [
                 {
                     data: '01:00',
@@ -159,7 +159,7 @@ var app = new Vue({
             {
             immagine: 'img/tina.jpg',
             nome: 'tina',
-            visible: false,
+            visible: true,
             conversazioni: [
                 {
                     data: '01:00',
@@ -228,10 +228,12 @@ var app = new Vue({
         },
 
         ricercaChat(){
-            console.log(this.searchBar);// keyUp obbligatorio sennò prende il log precedente
+            // element.visible = false;
+            // console.log(this.searchBar); // keyUp obbligatorio sennò prende il log precedente
             this.contatti.forEach(element => {// mi serve un ciclo per poter accedere a tutti gli elementi di array.nome
-                if (this.searchBar > 0 && element.nome.includes(this.searchBar)) {// se il valore della searchbar è incluso in elementi.nome
-                    alert('ciao')// rendi invisibile i risultati diversi
+                if (element.nome.toLowerCase().includes(this.searchBar.toLowerCase())) {// rendi tutto minuscolo e se il valore della searchBar è incluso in elementi.nome                    element.visible = true;
+                } else {
+                    element.visible = false;
                 }
             });
         }
