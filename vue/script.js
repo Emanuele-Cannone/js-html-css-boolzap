@@ -230,8 +230,8 @@ var app = new Vue({
         ricercaChat(){
             console.log(this.searchBar);// keyUp obbligatorio sennò prende il log precedente
             this.contatti.forEach(element => {// mi serve un ciclo per poter accedere a tutti gli elementi di array.nome
-                if (element.nome.includes(this.searchBar)) {// se il valore della searchbar è incluso in elementi.nome
-                    // rendi invisibile i risultati diversi
+                if (this.searchBar > 0 && element.nome.includes(this.searchBar)) {// se il valore della searchbar è incluso in elementi.nome
+                    alert('ciao')// rendi invisibile i risultati diversi
                 }
             });
         }
