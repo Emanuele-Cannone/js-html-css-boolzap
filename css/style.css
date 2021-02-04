@@ -215,6 +215,10 @@ button i{
     color: #b1b1b1;
 }
 
+.lastMex span{
+    padding-right: 3px;
+}
+
 
 /* rightside */
 .rightside{

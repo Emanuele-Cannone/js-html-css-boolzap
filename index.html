@@ -9,6 +9,8 @@
     <title>Document</title>
 </head>
 <body>
+
+    <!-- contenitore principale -->
     <div class="contenitore">
 
         <!-- leftside -->
@@ -42,9 +44,9 @@
 
             <!-- ricerca -->
             <div class="ricerca">
-                    <button v-if="searchBar >= 0"><i class="fas fa-search"></i></button>
-                    <button v-else><i class="fas fa-arrow-left"></i></button>
-                    <input v-model="searchBar" type="text" placeholder="Cerca o inizia una nuova chat">
+                <button v-if="searchBar >= 0"><i class="fas fa-search"></i></button>
+                <button @click="svuotacampo" v-else><i class="fas fa-arrow-left"></i></button>
+                <input v-model="searchBar" @keyup="ricercaChat" type="text" placeholder="Cerca o inizia una nuova chat">
             </div>
 
             <!-- allChat -->

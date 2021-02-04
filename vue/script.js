@@ -9,12 +9,12 @@
 var app = new Vue({
     el: '.contenitore',
     data: {
-        messaggioVocale: true,
-        mexChat: '',
-        searchBar: '',
-        visible: false,
-        utenteSelezionato: 0,
-        scrivendo: false,
+        messaggioVocale: true, // mi serve nel v-if per poter visualizzare l'icona del messaggio vocale
+        mexChat: '', // mi serve dichiararlo per poterlo utilizzare 
+        searchBar: '', // mi serve dichiararlo per poterlo utilizzare 
+        visible: false, // mi serve inizializzarlo false per poi utilizzarlo nel v-if
+        utenteSelezionato: 0, // mi serve al click per il cambio index 
+        scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
         contatti: [
             {
             immagine: 'img/jack.jpg',
@@ -188,26 +188,32 @@ var app = new Vue({
     methods:{
 
         visualizzaChat(index){
+            // cambiando l'index vado a cambiare la fonte da visualizzare
             this.utenteSelezionato = index;
+
         },
         
         scambioMessaggi(index){
+            // impostazione di un messaggio inviato dove il testo è preso dal v-model
             this.contatti[index].conversazioni.push({
-                data : 99,
+                data : '07:30',
                 testo : this.mexChat,
                 tipo : 'inviato'
             })
 
             this.mexChat = '';
 
-
             setTimeout(() => {
-                
+                // il set timeout mi serve per ritardare l'arrivo del messaggio
+
                 this.contatti[index].conversazioni.push({
-                    data: 99,
+                    // impostazione di un messaggio ricevuto
+                    data: '07:31',
                     testo: 'ok',
                     tipo: 'ricevuto'
                 })
+
+                // mi serve per far comparire 'Sta scrivendo...'
                 this.scrivendo = false;
                
             }, 2000); 
@@ -215,5 +221,28 @@ var app = new Vue({
             this.scrivendo = true;
 
         },
+
+        svuotacampo(){
+            // in questo modo vado a svuotare il campo filtro al click della freccia sx
+            this.searchBar = '';
+        },
+
+        ricercaChat(){
+            console.log(this.searchBar);// keyUp obbligatorio sennò prende il log precedente
+            this.contatti.forEach(element => {// mi serve un ciclo per poter accedere a tutti gli elementi di array.nome
+                if (element.nome.includes(this.searchBar)) {// se il valore della searchbar è incluso in elementi.nome
+                    // rendi invisibile i risultati diversi
+                }
+            });
+        }
+
+
     }
+    
 });
+
+
+
+
+
+
