@@ -213,18 +213,19 @@ var app = new Vue({
     },
     methods:{
 
-        visualizzaChat(indexVisualizzaChat){
+        visualizzaChat(index){
             // cambiando l'index vado a cambiare la fonte da visualizzare
-            this.utenteSelezionato = indexVisualizzaChat;
+            this.utenteSelezionato = index;
 
         },
         
-        scambioMessaggi(indexMessaggi){
+        scambioMessaggi(index){
             // impostazione di un messaggio inviato dove il testo è preso dal v-model
-            this.contatti[indexMessaggi].conversazioni.push({
+            this.contatti[index].conversazioni.push({
                 data : '07:30',
                 testo : this.mexChat,
-                tipo : 'inviato'
+                tipo : 'inviato',
+                visualizzaOpzione: false
             })
 
             this.mexChat = '';
@@ -232,22 +233,23 @@ var app = new Vue({
             setTimeout(() => {
                 // il set timeout mi serve per ritardare l'arrivo del messaggio
 
-                this.contatti[indexMessaggi].conversazioni.push({
+                this.contatti[index].conversazioni.push({
                     // impostazione di un messaggio ricevuto
                     data: '07:31',
                     testo: 'ok',
-                    tipo: 'ricevuto'
+                    tipo: 'ricevuto',
+                    visualizzaOpzione: false
                 })
 
                 // mi serve per far comparire 'Sta scrivendo...'
-                this.contatti[indexMessaggi].scrivendo = false;
-                // console.log(this.contatti[indexMessaggi].scrivendo);
+                this.contatti[index].scrivendo = false;
+                // console.log(this.contatti[index].scrivendo);
                
             }, 2000);
             
             // mi serve per far scomparire 'Sta scrivendo...'
-            this.contatti[indexMessaggi].scrivendo = true;
-            // console.log(this.contatti[indexMessaggi].scrivendo);
+            this.contatti[index].scrivendo = true;
+            // console.log(this.contatti[index].scrivendo);
 
         },
 
@@ -261,16 +263,16 @@ var app = new Vue({
             });
         },
 
-        option(indexOption){
-            // this.utenteSelezionato = indexOption;
+        option(element, index){
+            // this.utenteSelezionato = index;
             // this.index = this.
             // this.contatti[index].visualizzaOpzione = true;
-            console.log(this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione);
-            if (this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione == false) {
-                this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione = true;
+            console.log(element[index].visualizzaOpzione);
+            if (element[index].visualizzaOpzione == false) {
+                element[index].visualizzaOpzione = true;
             } 
-            else if (this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione == true){
-                this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione = false;
+            else if (element[index].visualizzaOpzione == true){
+                element[index].visualizzaOpzione = false;
             }
         }
         
