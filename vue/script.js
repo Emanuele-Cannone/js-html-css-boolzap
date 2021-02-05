@@ -15,6 +15,7 @@ var app = new Vue({
         visible: false, // mi serve inizializzarlo false per poi utilizzarlo nel v-if
         utenteSelezionato: 0, // mi serve al click per il cambio index 
         scrivendo: false, // mi serve inizializzarlo false per la scritta 'Sta scrivendo...' su ogni contatto
+        visualizzaOpzione: false,
         contatti: [
             {
             immagine: 'img/jack.jpg',
@@ -25,22 +26,26 @@ var app = new Vue({
                     {
                         data: '01:00',
                         testo: 'primo messaggio giacomo',
-                        tipo: 'inviato'
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
                     },
                     {
                         data: '02:00',
                         testo: 'secondo messaggio giacomo',
-                        tipo: 'ricevuto'
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
                     },
                     {
                         data: '03:00',
                         testo: 'terzo messaggio giacomo',
-                        tipo: 'inviato'
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
                     },
                     {
                         data: '04:00',
                         testo: 'quarto messaggio giacomo',
-                        tipo: 'ricevuto'
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
                     }
                 ]
             },
@@ -50,31 +55,30 @@ var app = new Vue({
             visible: true,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
-                {
-                    data: '01:00',
-                    testo: 'primo messaggio papaya',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '02:00',
-                    testo: 'secondo messaggio papaya',
-                    tipo: 'ricevuto'
-                },
-                {
-                    data: '03:00',
-                    testo: 'terzo messaggio papaya',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '04:00',
-                    testo: 'quarto messaggio papaya',
-                    tipo: 'ricevuto'
-                },
-                {
-                    data: '04:00',
-                    testo: 'quinto messaggio papaya',
-                    tipo: 'ricevuto'
-                }
+                    {
+                        data: '01:00',
+                        testo: 'primo messaggio papaya',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '02:00',
+                        testo: 'secondo messaggio papaya',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '03:00',
+                        testo: 'terzo messaggio papaya',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '04:00',
+                        testo: 'quarto messaggio papaya',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    }
                 ]
             },
             {
@@ -83,26 +87,30 @@ var app = new Vue({
             visible: true,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
-                {
-                    data: '01:00',
-                    testo: 'primo messaggio davide',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '02:00',
-                    testo: 'secondo messaggio davide',
-                    tipo: 'ricevuto'
-                },
-                {
-                    data: '03:00',
-                    testo: 'terzo messaggio davide',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '04:00',
-                    testo: 'quarto messaggio davide',
-                    tipo: 'ricevuto'
-                }
+                    {
+                        data: '01:00',
+                        testo: 'primo messaggio davide',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '02:00',
+                        testo: 'secondo messaggio davide',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '03:00',
+                        testo: 'terzo messaggio davide',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '04:00',
+                        testo: 'quarto messaggio davide',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    }
                 ]
             },
             {
@@ -111,26 +119,30 @@ var app = new Vue({
             visible: true,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
-                {
-                    data: '01:00',
-                    testo: 'primo messaggio yuri',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '02:00',
-                    testo: 'secondo messaggio yuri',
-                    tipo: 'ricevuto'
-                },
-                {
-                    data: '03:00',
-                    testo: 'terzo messaggio yuri',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '04:00',
-                    testo: 'quarto messaggio yuri',
-                    tipo: 'ricevuto'
-                }
+                    {
+                        data: '01:00',
+                        testo: 'primo messaggio yuri',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '02:00',
+                        testo: 'secondo messaggio yuri',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '03:00',
+                        testo: 'terzo messaggio yuri',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '04:00',
+                        testo: 'quarto messaggio yuri',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    }
                 ]
             },
             {
@@ -139,26 +151,30 @@ var app = new Vue({
             visible: true,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
-                {
-                    data: '01:00',
-                    testo: 'primo messaggio cristiano',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '02:00',
-                    testo: 'secondo messaggio cristiano',
-                    tipo: 'ricevuto'
-                },
-                {
-                    data: '03:00',
-                    testo: 'terzo messaggio cristiano',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '04:00',
-                    testo: 'quarto messaggio cristiano',
-                    tipo: 'ricevuto'
-                }
+                    {
+                        data: '01:00',
+                        testo: 'primo messaggio cristiano',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '02:00',
+                        testo: 'secondo messaggio cristiano',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '03:00',
+                        testo: 'terzo messaggio cristiano',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '04:00',
+                        testo: 'quarto messaggio cristiano',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    }
                 ]
             },
             {
@@ -167,41 +183,45 @@ var app = new Vue({
             visible: true,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
-                {
-                    data: '01:00',
-                    testo: 'primo messaggio tina',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '02:00',
-                    testo: 'secondo messaggio tina',
-                    tipo: 'ricevuto'
-                },
-                {
-                    data: '03:00',
-                    testo: 'terzo messaggio tina',
-                    tipo: 'inviato'
-                },
-                {
-                    data: '04:00',
-                    testo: 'quarto messaggio tina',
-                    tipo: 'ricevuto'
-                }
+                    {
+                        data: '01:00',
+                        testo: 'primo messaggio tina',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '02:00',
+                        testo: 'secondo messaggio tina',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '03:00',
+                        testo: 'terzo messaggio tina',
+                        tipo: 'inviato',
+                        visualizzaOpzione: false
+                    },
+                    {
+                        data: '04:00',
+                        testo: 'quarto messaggio tina',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    }
                 ]
             },
         ]
     },
     methods:{
 
-        visualizzaChat(index){
+        visualizzaChat(indexVisualizzaChat){
             // cambiando l'index vado a cambiare la fonte da visualizzare
-            this.utenteSelezionato = index;
+            this.utenteSelezionato = indexVisualizzaChat;
 
         },
         
-        scambioMessaggi(index){
+        scambioMessaggi(indexMessaggi){
             // impostazione di un messaggio inviato dove il testo è preso dal v-model
-            this.contatti[index].conversazioni.push({
+            this.contatti[indexMessaggi].conversazioni.push({
                 data : '07:30',
                 testo : this.mexChat,
                 tipo : 'inviato'
@@ -212,7 +232,7 @@ var app = new Vue({
             setTimeout(() => {
                 // il set timeout mi serve per ritardare l'arrivo del messaggio
 
-                this.contatti[index].conversazioni.push({
+                this.contatti[indexMessaggi].conversazioni.push({
                     // impostazione di un messaggio ricevuto
                     data: '07:31',
                     testo: 'ok',
@@ -220,14 +240,14 @@ var app = new Vue({
                 })
 
                 // mi serve per far comparire 'Sta scrivendo...'
-                this.contatti[index].scrivendo = false;
-                console.log(this.contatti[index].scrivendo);
+                this.contatti[indexMessaggi].scrivendo = false;
+                // console.log(this.contatti[indexMessaggi].scrivendo);
                
             }, 2000);
             
             // mi serve per far scomparire 'Sta scrivendo...'
-            this.contatti[index].scrivendo = true;
-            console.log(this.contatti[index].scrivendo);
+            this.contatti[indexMessaggi].scrivendo = true;
+            // console.log(this.contatti[indexMessaggi].scrivendo);
 
         },
 
@@ -239,6 +259,19 @@ var app = new Vue({
                     element.visible = true;
                 }
             });
+        },
+
+        option(indexOption){
+            // this.utenteSelezionato = indexOption;
+            // this.index = this.
+            // this.contatti[index].visualizzaOpzione = true;
+            console.log(this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione);
+            if (this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione == false) {
+                this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione = true;
+            } 
+            else if (this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione == true){
+                this.contatti[indexOption].conversazioni[indexOption].visualizzaOpzione = false;
+            }
         }
         
     }

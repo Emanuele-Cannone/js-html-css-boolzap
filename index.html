@@ -52,13 +52,13 @@
             <div class="allChat">
 
                 <ul>
-                    <li v-if="chatAttiva.visible" class="chat debug" v-for="(chatAttiva, index) in contatti" @click="visualizzaChat(index)">
+                    <li v-if="chatAttiva.visible" class="chat debug" v-for="(chatAttiva, indexVisualizza) in contatti" @click="visualizzaChat(indexVisualizza)">
                         <div class="partesx">
                             <img :src="chatAttiva.immagine" :alt="chatAttiva.nome">
                         </div>
                         <div class="partedx">
                             <div class="capitalize">{{chatAttiva.nome}}</div>
-                            <div v-if="contatti[index].scrivendo" class="lastMex">Sta scrivendo...</div>
+                            <div v-if="contatti[indexVisualizza].scrivendo" class="lastMex">Sta scrivendo...</div>
                             <div v-else class="lastMex"><span><i class="fas fa-check"></i></span>{{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}</div>
                         </div>
                     </li>
@@ -92,10 +92,17 @@
             <!-- conversazione -->
             <div class="conversazione">
                 
-                <ul v-for="(element, index) in contatti[utenteSelezionato].conversazioni" class="width90">
+                <ul v-for="(element, indexUltimo) in contatti[utenteSelezionato].conversazioni" class="width90">
                     <li class="mex" :class="(element.tipo == 'inviato') ? 'inviato' : 'ricevuto' ">{{element.testo}} 
-                        <div class="orario">{{element.data}}<span><i class="fas fa-check"></i></span></div>
+                        <div class="orario">{{element.data}}<span><i class="fas fa-check"></i></span><span @click="option(indexAltro)" class="opzione"><i class="fas fa-chevron-down"></i></span></div>
                     </li>
+                    <div id="opzioneMex" :class="(element.tipo == 'inviato') ? 'inviato' : 'ricevuto' ">
+                        <ul v-if="contatti[indexUltimo].conversazioni.visualizzaOpzione">
+                            <li>Info messaggio</li>
+                            <li>Elimina messaggio</li>
+                        </ul>
+                        <ul v-else></ul>
+                    </div>
                 </ul>
                 
             </div>

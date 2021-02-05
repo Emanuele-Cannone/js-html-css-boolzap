@@ -269,6 +269,24 @@ button i{
     padding: 7px;
 }
 
+.opzione{
+    display: none;
+}
+
+.conversazione ul li:hover .opzione{
+    display: inline;
+}
+
+#opzioneMex{
+    clear: both;
+    background-color: #fff;
+}
+
+#opzioneMex li:hover{
+    background-color: rgb(204, 205, 206);
+    border-radius: 0;
+}
+
 .mex{
     clear: both;
     word-break: break-word;
