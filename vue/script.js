@@ -14,12 +14,13 @@ var app = new Vue({
         searchBar: '', // mi serve dichiararlo per poterlo utilizzare 
         visible: false, // mi serve inizializzarlo false per poi utilizzarlo nel v-if
         utenteSelezionato: 0, // mi serve al click per il cambio index 
-        scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
+        scrivendo: false, // mi serve inizializzarlo false per la scritta 'Sta scrivendo...' su ogni contatto
         contatti: [
             {
             immagine: 'img/jack.jpg',
             nome: 'giacomo',
             visible: true,
+            scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                     {
                         data: '01:00',
@@ -47,6 +48,7 @@ var app = new Vue({
             immagine: 'img/papaya.jpg',
             nome: 'papaya',
             visible: true,
+            scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                 {
                     data: '01:00',
@@ -79,6 +81,7 @@ var app = new Vue({
             immagine: 'img/davide.jpg',
             nome: 'davide',
             visible: true,
+            scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                 {
                     data: '01:00',
@@ -106,6 +109,7 @@ var app = new Vue({
             immagine: 'img/yuri.jpg',
             nome: 'yuri',
             visible: true,
+            scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                 {
                     data: '01:00',
@@ -133,6 +137,7 @@ var app = new Vue({
             immagine: 'img/cristiano.jpg',
             nome: 'cristiano',
             visible: true,
+            scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                 {
                     data: '01:00',
@@ -160,6 +165,7 @@ var app = new Vue({
             immagine: 'img/tina.jpg',
             nome: 'tina',
             visible: true,
+            scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                 {
                     data: '01:00',
@@ -214,31 +220,27 @@ var app = new Vue({
                 })
 
                 // mi serve per far comparire 'Sta scrivendo...'
-                this.scrivendo = false;
+                this.contatti[index].scrivendo = false;
+                console.log(this.contatti[index].scrivendo);
                
-            }, 2000); 
+            }, 2000);
+            
+            // mi serve per far scomparire 'Sta scrivendo...'
+            this.contatti[index].scrivendo = true;
+            console.log(this.contatti[index].scrivendo);
 
-            this.scrivendo = true;
-
-        },
-
-        svuotacampo(){
-            // in questo modo vado a svuotare il campo filtro al click della freccia sx
-            this.searchBar = '';
         },
 
         ricercaChat(){
-            // element.visible = false;
             // console.log(this.searchBar); // keyUp obbligatorio sennò prende il log precedente
             this.contatti.forEach(element => {// mi serve un ciclo per poter accedere a tutti gli elementi di array.nome
+                element.visible = false;
                 if (element.nome.toLowerCase().includes(this.searchBar.toLowerCase())) {// rendi tutto minuscolo e se il valore della searchBar è incluso in elementi.nome                    element.visible = true;
-                } else {
-                    element.visible = false;
+                    element.visible = true;
                 }
             });
         }
-
-
+        
     }
     
 });
