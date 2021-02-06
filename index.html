@@ -79,7 +79,7 @@
                         <div class="chatattuale">
                             <div class="capitalize">{{contatti[utenteSelezionato].nome}}</div>
                             <div v-if="contatti[utenteSelezionato].scrivendo" class="ultimoaccesso">Sta scrivendo...</div>
-                            <!-- <div v-else-if="online">test</div> -->
+                            <div v-else-if="contatti[utenteSelezionato].online" class="ultimoaccesso">Online</div>
                             <div v-else class="ultimoaccesso">Ultimo accesso oggi alle</div>
                         </div>
                     </div>

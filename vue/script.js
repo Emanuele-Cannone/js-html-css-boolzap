@@ -16,11 +16,13 @@ var app = new Vue({
         utenteSelezionato: 0, // mi serve al click per il cambio index 
         scrivendo: false, // mi serve inizializzarlo false per la scritta 'Sta scrivendo...' su ogni contatto
         visualizzaOpzione: false, // mi serve per inizializzare a false la finestra opzionale
+        online: false, // mi serve inizializzarlo false per la scritta 'Sta scrivendo...' sul contatto che sta per rispondere
         contatti: [
             {
             immagine: 'img/jack.jpg',
             nome: 'giacomo',
             visible: true,
+            online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                     {
@@ -53,6 +55,7 @@ var app = new Vue({
             immagine: 'img/papaya.jpg',
             nome: 'papaya',
             visible: true,
+            online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                     {
@@ -85,6 +88,7 @@ var app = new Vue({
             immagine: 'img/davide.jpg',
             nome: 'davide',
             visible: true,
+            online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                     {
@@ -117,6 +121,7 @@ var app = new Vue({
             immagine: 'img/yuri.jpg',
             nome: 'yuri',
             visible: true,
+            online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                     {
@@ -149,6 +154,7 @@ var app = new Vue({
             immagine: 'img/cristiano.jpg',
             nome: 'cristiano',
             visible: true,
+            online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                     {
@@ -181,6 +187,7 @@ var app = new Vue({
             immagine: 'img/tina.jpg',
             nome: 'tina',
             visible: true,
+            online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
             conversazioni: [
                     {
@@ -230,34 +237,56 @@ var app = new Vue({
 
             this.mexChat = '';
 
+
             setTimeout(() => {
-            // il primo setTimeout mi serve per far ritardare quello che succede dentro
+                // questo setTimeout mi serve per far comparire lo stato 'online' prima di 'sta scrivendo'
 
                 setTimeout(() => {
-                    // questo timeout mi serve per ritardare l'arrivo del messaggio
-    
-                    this.contatti[index].conversazioni.push({
-                        // impostazione di un messaggio ricevuto
-                        data: '07:31',
-                        testo: 'ok',
-                        tipo: 'ricevuto',
-                        visualizzaOpzione: false
-                    })
-    
-                    // mi serve per far comparire 'Sta scrivendo...'
-                    this.contatti[index].scrivendo = false;
+                    // questo setTimeout mi serve per far comparire 'Sta scrivendo...'
+
+
+                    setTimeout(() => {
+                        // questo timeout mi serve per ritardare l'arrivo del messaggio
+
+                        this.contatti[index].conversazioni.push({
+                            // impostazione di un messaggio ricevuto
+                            data: '07:31',
+                            testo: 'ok',
+                            tipo: 'ricevuto',
+                            visualizzaOpzione: false
+                        })
+
+                        // mi serve per far comparire 'Sta scrivendo...'
+                        this.contatti[index].scrivendo = false;
+                        // console.log(this.contatti[index].scrivendo);
+
+
+                        setTimeout(() => {
+
+                            // mi serve per far scomparire 'Online'
+                            this.contatti[index].online = false;
+                            
+                        }, 1500);
+
+
+                    }, 2000);
+
+
+                    // mi serve per far scomparire 'Sta scrivendo...'
+                    this.contatti[index].scrivendo = true;
                     // console.log(this.contatti[index].scrivendo);
-                   
-                }, 2000);
-                
-                // mi serve per far scomparire 'Sta scrivendo...'
-                this.contatti[index].scrivendo = true;
-                // console.log(this.contatti[index].scrivendo);
-                
+
+
+                }, 3000);
+
+
+                // mi serve per far comparire 'Online'
+                this.contatti[index].online = true;
+
 
             }, 3000);
 
-
+                
         },
 
         ricercaChat(){
@@ -313,13 +342,13 @@ var app = new Vue({
     },
     mounted() {
         
-        
+        // mi serve per generare un index casuale da 0 compreso fino alla lunghezza dell'array
         numeroCasuale = Math.ceil(Math.random() * this.contatti.length - 1);
-        console.log(numeroCasuale);
         
         
         // +++++ messaggio casuale +++++
-       
+        setTimeout((index) => {
+                // questo setTimeout mi serve per far comparire lo stato 'online' prima di 'sta scrivendo'
 
             setTimeout(() => {
 
@@ -338,6 +367,13 @@ var app = new Vue({
     
                     // mi serve per far comparire 'Sta scrivendo...'
                     this.contatti[numeroCasuale].scrivendo = false;
+
+                    setTimeout((index) => {
+
+                        // mi serve per far scomparire 'Online'
+                        this.contatti[numeroCasuale].online = false;
+
+                    }, 1500);
     
                 }, 4000);
             
@@ -346,6 +382,12 @@ var app = new Vue({
 
 
             }, 5000);
+
+            // mi serve per far comparire 'Online'
+            this.contatti[numeroCasuale].online = true;
+
+
+        }, 3000);
 
     
         // +++++ fine messaggio casuale +++++
