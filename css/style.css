@@ -262,6 +262,12 @@ button i{
     overflow-y: scroll;
 }
 
+.conversazione ul::after {
+    content: "";
+    display: table;
+    clear: both; 
+}
+
 .conversazione ul li{
     font-size: 15px;
     border-radius: 7px;
@@ -297,6 +303,10 @@ button i{
     cursor: default;
 }
 
+.menu:hover{
+    cursor: pointer;
+}
+
 .inviato{
     background-color: #dcf8c7;
     float: right;
@@ -317,6 +327,9 @@ button i{
     padding-left: 5px;
 }
 
+#eliminato{
+    color: lightgray;
+}
 
 
 /* messaggio */

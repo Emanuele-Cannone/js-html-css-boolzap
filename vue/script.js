@@ -16,6 +16,7 @@ var app = new Vue({
         utenteSelezionato: 0, // mi serve al click per il cambio index 
         scrivendo: false, // mi serve inizializzarlo false per la scritta 'Sta scrivendo...' su ogni contatto
         visualizzaOpzione: false,
+        visualizz: '',
         contatti: [
             {
             immagine: 'img/jack.jpg',
@@ -264,18 +265,46 @@ var app = new Vue({
         },
 
         option(element, index){
-            // this.utenteSelezionato = index;
-            // this.index = this.
-            // this.contatti[index].visualizzaOpzione = true;
-            console.log(element[index].visualizzaOpzione);
+            // console.log(element[index].visualizzaOpzione);
+            
+
             if (element[index].visualizzaOpzione == false) {
                 element[index].visualizzaOpzione = true;
+                this.visualizz = element[index].visualizzaOpzione;
             } 
-            else if (element[index].visualizzaOpzione == true){
+            else {
                 element[index].visualizzaOpzione = false;
             }
-        }
+
+        },
+
+        visualizzaEliminato(element, index){
         
+
+            if (element.testo == 'Hai eliminato questo messaggio' || element.tipo == 'ricevuto') {
+                alert('elimina definitivamente');
+                console.log(index);
+
+                // QUI DEVI METTERE LA FUNZIONE PER ELIMINARE IL MESSAGGIO
+                this.eliminaMessaggio(index);
+
+            } else if (element.tipo == 'inviato') {
+                
+                element.testo =  'Hai eliminato questo messaggio'
+
+            }
+
+            
+            element.visualizzaOpzione = false;
+
+            // console.log('cosi dovrebbe essere chiuso', this.visualizz);
+            
+        },
+
+        eliminaMessaggio(index){
+            this.contatti[this.utenteSelezionato].conversazioni.splice(index,1);
+        }
+
     }
     
 });
