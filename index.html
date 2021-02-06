@@ -79,6 +79,7 @@
                         <div class="chatattuale">
                             <div class="capitalize">{{contatti[utenteSelezionato].nome}}</div>
                             <div v-if="contatti[utenteSelezionato].scrivendo" class="ultimoaccesso">Sta scrivendo...</div>
+                            <!-- <div v-else-if="online">test</div> -->
                             <div v-else class="ultimoaccesso">Ultimo accesso oggi alle</div>
                         </div>
                     </div>
@@ -91,19 +92,28 @@
 
             <!-- conversazione -->
             <div class="conversazione">
-                
+
                 <ul v-for="(element, index) in contatti[utenteSelezionato].conversazioni" class="width90">
+
+                    <!-- invio - arrivo messaggi -->
                     <li class="mex" :class="(element.tipo == 'inviato') ? 'inviato' : 'ricevuto' " :id="(element.testo === 'Hai eliminato questo messaggio') ? 'eliminato' : ' ' ">{{element.testo}} 
                         <div class="orario">{{element.data}}<span><i class="fas fa-check"></i></span><span @click="option(contatti[utenteSelezionato].conversazioni, index)" class="opzione"><i class="fas fa-chevron-down"></i></span></div>
                     </li>
+
+                    <!-- opzione messaggio -->
                     <div id="opzioneMex" :class="(element.tipo == 'inviato') ? 'inviato' : 'ricevuto' ">
+
                         <ul class="menu" v-if="contatti[utenteSelezionato].conversazioni[index].visualizzaOpzione">
                             <li>Info messaggio</li>
-                            <li @click="visualizzaEliminato(contatti[utenteSelezionato].conversazioni[index], index)">Elimina messaggio</li>                        </ul>
+                            <li @click="visualizzaEliminato(contatti[utenteSelezionato].conversazioni[index], index)">Elimina messaggio</li>                        
+                        </ul>
+
                         <ul v-else></ul>
+
                     </div>
+
                 </ul>
-                
+                        
             </div>
 
             <!-- messaggio -->

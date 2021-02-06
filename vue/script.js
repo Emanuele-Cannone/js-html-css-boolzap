@@ -15,8 +15,7 @@ var app = new Vue({
         visible: false, // mi serve inizializzarlo false per poi utilizzarlo nel v-if
         utenteSelezionato: 0, // mi serve al click per il cambio index 
         scrivendo: false, // mi serve inizializzarlo false per la scritta 'Sta scrivendo...' su ogni contatto
-        visualizzaOpzione: false,
-        visualizz: '',
+        visualizzaOpzione: false, // mi serve per inizializzare a false la finestra opzionale
         contatti: [
             {
             immagine: 'img/jack.jpg',
@@ -232,25 +231,32 @@ var app = new Vue({
             this.mexChat = '';
 
             setTimeout(() => {
-                // il set timeout mi serve per ritardare l'arrivo del messaggio
+            // il primo setTimeout mi serve per far ritardare quello che succede dentro
 
-                this.contatti[index].conversazioni.push({
-                    // impostazione di un messaggio ricevuto
-                    data: '07:31',
-                    testo: 'ok',
-                    tipo: 'ricevuto',
-                    visualizzaOpzione: false
-                })
-
-                // mi serve per far comparire 'Sta scrivendo...'
-                this.contatti[index].scrivendo = false;
+                setTimeout(() => {
+                    // questo timeout mi serve per ritardare l'arrivo del messaggio
+    
+                    this.contatti[index].conversazioni.push({
+                        // impostazione di un messaggio ricevuto
+                        data: '07:31',
+                        testo: 'ok',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    })
+    
+                    // mi serve per far comparire 'Sta scrivendo...'
+                    this.contatti[index].scrivendo = false;
+                    // console.log(this.contatti[index].scrivendo);
+                   
+                }, 2000);
+                
+                // mi serve per far scomparire 'Sta scrivendo...'
+                this.contatti[index].scrivendo = true;
                 // console.log(this.contatti[index].scrivendo);
-               
-            }, 2000);
-            
-            // mi serve per far scomparire 'Sta scrivendo...'
-            this.contatti[index].scrivendo = true;
-            // console.log(this.contatti[index].scrivendo);
+                
+
+            }, 3000);
+
 
         },
 
@@ -282,30 +288,69 @@ var app = new Vue({
         
 
             if (element.testo == 'Hai eliminato questo messaggio' || element.tipo == 'ricevuto') {
-                alert('elimina definitivamente');
-                console.log(index);
-
+                
                 // QUI DEVI METTERE LA FUNZIONE PER ELIMINARE IL MESSAGGIO
                 this.eliminaMessaggio(index);
 
             } else if (element.tipo == 'inviato') {
                 
+                // QUESTO SERVE PERCHE' PER I MESSAGGI INVIATI COMPARE LA DICITURA 'Hai eliminato questo messaggio'
                 element.testo =  'Hai eliminato questo messaggio'
 
             }
 
-            
+            // QUESTO SERVE PER CHIUDERE LA FINESTRA DI OPZIONE
             element.visualizzaOpzione = false;
 
-            // console.log('cosi dovrebbe essere chiuso', this.visualizz);
             
         },
 
         eliminaMessaggio(index){
             this.contatti[this.utenteSelezionato].conversazioni.splice(index,1);
-        }
+        },
 
+        
+    },
+    mounted() {
+        
+        
+        numeroCasuale = Math.ceil(Math.random() * this.contatti.length - 1);
+        console.log(numeroCasuale);
+        
+        
+        // +++++ messaggio casuale +++++
+       
+
+            setTimeout(() => {
+
+                // il primo setTimeout mi serve per far ritardare quello che succede dentro
+                
+                setTimeout(() => {
+                    // questo setTimeout mi serve per ritardare l'arrivo del messaggio
+            
+                    this.contatti[numeroCasuale].conversazioni.push({
+                        // impostazione di un messaggio ricevuto
+                        data: '07:31',
+                        testo: 'Ciao, sei ancora al pc?',
+                        tipo: 'ricevuto',
+                        visualizzaOpzione: false
+                    })
+    
+                    // mi serve per far comparire 'Sta scrivendo...'
+                    this.contatti[numeroCasuale].scrivendo = false;
+    
+                }, 4000);
+            
+                // mi serve per far scomparire 'Sta scrivendo...'
+                this.contatti[numeroCasuale].scrivendo = true;
+
+
+            }, 5000);
+
+    
+        // +++++ fine messaggio casuale +++++
     }
+
     
 });
 
