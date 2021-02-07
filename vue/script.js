@@ -26,7 +26,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
-                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
+            messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -64,7 +64,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
-                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
+            messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -102,7 +102,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
-                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
+            messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -140,7 +140,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
-                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
+            messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -178,7 +178,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
-                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
+            messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -219,7 +219,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
-                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
+            messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -282,7 +282,7 @@ var app = new Vue({
         scambioMessaggi(index){
             // impostazione di un messaggio inviato dove il testo è preso dal v-model
             this.contatti[index].conversazioni.push({
-                data : '07:30',
+                data: moment().locale('it').format('LT'),
                 testo : this.mexChat,
                 tipo : 'inviato',
                 visualizzaOpzione: false,
@@ -432,7 +432,7 @@ var app = new Vue({
                     // mi serve per far comparire 'Sta scrivendo...'
                     this.contatti[numeroCasuale].scrivendo = false;
 
-                    setTimeout((index) => {
+                    setTimeout(() => {
 
                         // mi serve per far scomparire 'Online'
                         this.contatti[numeroCasuale].online = false;

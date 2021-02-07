@@ -218,6 +218,18 @@ button i{
     flex-grow: 1;
 }
 
+.anteprima{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 190px;
+}
+
+#daVedere{
+    color: black;
+    font-size: 15px;
+}
+
 .partedx{
     position: relative;
 }
@@ -233,17 +245,17 @@ button i{
 }
 
 .pallino{
-    height: 30px;
-    width: 30px;
+    height: 27px;
+    width: 27px;
     border-radius: 50%;
-    background-color: red;
+    background-color: #00e349;
     content: "1";
-    color: black;
+    color: white;
     text-align: center;
     position: absolute;
     right: 14px;
     bottom: 15px;
-    line-height: 30px;
+    line-height: 27px;
     vertical-align: center;
 }
 
@@ -254,8 +266,6 @@ button i{
     color: #b1b1b1;
     font-size: 15px;
 }
-
-
 
 
 /* rightside */
@@ -283,6 +293,7 @@ button i{
 .ultimoaccesso{
     color: #6b7376;
     font-size: 13px;
+    padding-top: 3px;
 }
 
 .headerright .icone i{

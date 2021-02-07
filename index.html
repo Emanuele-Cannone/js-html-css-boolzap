@@ -62,7 +62,7 @@
                         <div class="partecc">
                             <div class="capitalize">{{chatAttiva.nome}}</div>
                             <div v-if="contatti[index].scrivendo" class="lastMex">Sta scrivendo...</div>
-                            <div v-else class="lastMex"><span><i class="fas fa-check"></i></span>{{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}</div>
+                            <div v-else class="lastMex anteprima" :id="(!chatAttiva.conversazioni[chatAttiva.conversazioni.length - 1].visualizzato) ? 'daVedere' : 'null' "><span><i v-if=" chatAttiva.conversazioni[chatAttiva.conversazioni.length - 1].tipo == 'inviato' " class="fas fa-check"></i></span>{{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}</div>
                         </div>
 
                         <div class="partedx">
@@ -111,7 +111,7 @@
 
                     <!-- invio - arrivo messaggi -->
                     <li class="mex" :class="(element.tipo == 'inviato') ? 'inviato' : 'ricevuto' " :id="(element.testo === 'Hai eliminato questo messaggio') ? 'eliminato' : ' ' ">{{element.testo}} 
-                        <div class="orario">{{element.data}}<span><i class="fas fa-check"></i></span><span @click="option(contatti[utenteSelezionato].conversazioni, index)" class="opzione"><i class="fas fa-chevron-down"></i></span></div>
+                        <div class="orario">{{element.data}}<span><i v-if=" element.tipo == 'inviato' " class="fas fa-check"></i></span><span @click="option(contatti[utenteSelezionato].conversazioni, index)" class="opzione"><i class="fas fa-chevron-down"></i></span></div>
                     </li>
 
                     <!-- opzione messaggio -->
