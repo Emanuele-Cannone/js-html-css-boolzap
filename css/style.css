@@ -219,11 +219,6 @@ button i{
 }
 
 .partedx{
-    /* display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 30px; */
     position: relative;
 }
 
@@ -245,7 +240,6 @@ button i{
     content: "1";
     color: black;
     text-align: center;
-
     position: absolute;
     right: 14px;
     bottom: 15px;
@@ -257,6 +251,8 @@ button i{
     position: absolute;
     right: 18px;
     top: 10px;
+    color: #b1b1b1;
+    font-size: 15px;
 }
 
 

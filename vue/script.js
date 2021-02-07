@@ -26,6 +26,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
+                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -63,6 +64,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
+                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -100,6 +102,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
+                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -137,6 +140,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
+                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -174,6 +178,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
+                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -214,6 +219,7 @@ var app = new Vue({
             visible: true,
             online: false,
             scrivendo: false, // mi serve per la scritta 'Sta scrivendo...'
+                messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
             conversazioni: [
                     {
                         data: '01:00',
@@ -257,13 +263,16 @@ var app = new Vue({
             this.mexChat = '';
 
             // mi serve per fare il log dell'ultimo messaggio se è inizializzato giusto
-            console.log(this.contatti[this.utenteSelezionato].conversazioni[this.contatti[this.utenteSelezionato].conversazioni.length - 1].visualizzato);
+            // console.log(this.contatti[this.utenteSelezionato].conversazioni[this.contatti[this.utenteSelezionato].conversazioni.length - 1].visualizzato);
 
 
             // mi serve per cambiare il booleano dell'ultimo messaggio
             this.contatti[this.utenteSelezionato].conversazioni[this.contatti[this.utenteSelezionato].conversazioni.length - 1].visualizzato = true;
 
-            this.messaggiNonVisti.splice(0);
+            if (this.contatti[this.utenteSelezionato].messaggiNonVisti.length > 0) {
+                
+                this.contatti[this.utenteSelezionato].messaggiNonVisti.splice(0);
+            }
             console.log(this.messaggiNonVisti);
             
             
@@ -308,8 +317,8 @@ var app = new Vue({
                         this.contatti[index].scrivendo = false;
                         // console.log(this.contatti[index].scrivendo);
                         
-                        this.messaggiNonVisti.push(8);
-                        console.log(this.messaggiNonVisti.length);
+                        this.contatti[index].messaggiNonVisti.push(8);
+                        console.log(this.contatti[index].messaggiNonVisti.length);
                         
                         setTimeout(() => {
                             
@@ -417,8 +426,8 @@ var app = new Vue({
                     })
 
                     
-                    this.messaggiNonVisti.push(8);
-                    console.log(this.messaggiNonVisti.length);
+                    this.contatti[numeroCasuale].messaggiNonVisti.push(8);
+                    // console.log(this.messaggiNonVisti.length);
 
                     // mi serve per far comparire 'Sta scrivendo...'
                     this.contatti[numeroCasuale].scrivendo = false;
