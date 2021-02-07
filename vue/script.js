@@ -16,7 +16,8 @@ var app = new Vue({
         utenteSelezionato: 0, // mi serve al click per il cambio index 
         scrivendo: false, // mi serve inizializzarlo false per la scritta 'Sta scrivendo...' su ogni contatto
         visualizzaOpzione: false, // mi serve per inizializzare a false la finestra opzionale
-        online: false, // mi serve inizializzarlo false per la scritta 'Sta scrivendo...' sul contatto che sta per rispondere
+        online: false, // mi serve inizializzarlo false per la scritta 'Online' sul contatto che sta per rispondere
+        visualizzato: true, // mi serve inizializzarlo false per la notifica su ogni visualizzato
         contatti: [
             {
             immagine: 'img/jack.jpg',
@@ -29,25 +30,29 @@ var app = new Vue({
                         data: '01:00',
                         testo: 'primo messaggio giacomo',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '02:00',
                         testo: 'secondo messaggio giacomo',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '03:00',
                         testo: 'terzo messaggio giacomo',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '04:00',
                         testo: 'quarto messaggio giacomo',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     }
                 ]
             },
@@ -62,25 +67,29 @@ var app = new Vue({
                         data: '01:00',
                         testo: 'primo messaggio papaya',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '02:00',
                         testo: 'secondo messaggio papaya',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '03:00',
                         testo: 'terzo messaggio papaya',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '04:00',
                         testo: 'quarto messaggio papaya',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     }
                 ]
             },
@@ -95,25 +104,29 @@ var app = new Vue({
                         data: '01:00',
                         testo: 'primo messaggio davide',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '02:00',
                         testo: 'secondo messaggio davide',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '03:00',
                         testo: 'terzo messaggio davide',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '04:00',
                         testo: 'quarto messaggio davide',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     }
                 ]
             },
@@ -128,25 +141,29 @@ var app = new Vue({
                         data: '01:00',
                         testo: 'primo messaggio yuri',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '02:00',
                         testo: 'secondo messaggio yuri',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '03:00',
                         testo: 'terzo messaggio yuri',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '04:00',
                         testo: 'quarto messaggio yuri',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     }
                 ]
             },
@@ -161,25 +178,32 @@ var app = new Vue({
                         data: '01:00',
                         testo: 'primo messaggio cristiano',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
-                    },
+                        visualizzaOpzione: false,
+                        visualizzato: true
+                        
+                        },
                     {
                         data: '02:00',
                         testo: 'secondo messaggio cristiano',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '03:00',
                         testo: 'terzo messaggio cristiano',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
+                        
                     },
                     {
                         data: '04:00',
                         testo: 'quarto messaggio cristiano',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
+                        
                     }
                 ]
             },
@@ -194,25 +218,29 @@ var app = new Vue({
                         data: '01:00',
                         testo: 'primo messaggio tina',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '02:00',
                         testo: 'secondo messaggio tina',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '03:00',
                         testo: 'terzo messaggio tina',
                         tipo: 'inviato',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     },
                     {
                         data: '04:00',
                         testo: 'quarto messaggio tina',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: true
                     }
                 ]
             },
@@ -224,6 +252,17 @@ var app = new Vue({
             // cambiando l'index vado a cambiare la fonte da visualizzare
             this.utenteSelezionato = index;
 
+            // mi serve per azzerare il campo di testo ogni volta che visualizzo un nuovo utente
+            this.mexChat = '';
+
+            // mi serve per fare il log dell'ultimo messaggio se è inizializzato giusto
+            console.log(this.contatti[this.utenteSelezionato].conversazioni[this.contatti[this.utenteSelezionato].conversazioni.length - 1].visualizzato);
+
+
+            // mi serve per cambiare il booleano dell'ultimo messaggio
+            this.contatti[this.utenteSelezionato].conversazioni[this.contatti[this.utenteSelezionato].conversazioni.length - 1].visualizzato = true;
+            
+
         },
         
         scambioMessaggi(index){
@@ -232,7 +271,8 @@ var app = new Vue({
                 data : '07:30',
                 testo : this.mexChat,
                 tipo : 'inviato',
-                visualizzaOpzione: false
+                visualizzaOpzione: false,
+                visualizzato: true
             })
 
             this.mexChat = '';
@@ -253,7 +293,8 @@ var app = new Vue({
                             data: '07:31',
                             testo: 'ok',
                             tipo: 'ricevuto',
-                            visualizzaOpzione: false
+                            visualizzaOpzione: false,
+                            visualizzato: false
                         })
 
                         // mi serve per far comparire 'Sta scrivendo...'
@@ -305,7 +346,7 @@ var app = new Vue({
 
             if (element[index].visualizzaOpzione == false) {
                 element[index].visualizzaOpzione = true;
-                this.visualizz = element[index].visualizzaOpzione;
+                // this.visualizz = element[index].visualizzaOpzione;
             } 
             else {
                 element[index].visualizzaOpzione = false;
@@ -337,7 +378,6 @@ var app = new Vue({
         eliminaMessaggio(index){
             this.contatti[this.utenteSelezionato].conversazioni.splice(index,1);
         },
-
         
     },
     mounted() {
@@ -362,7 +402,8 @@ var app = new Vue({
                         data: '07:31',
                         testo: 'Ciao, sei ancora al pc?',
                         tipo: 'ricevuto',
-                        visualizzaOpzione: false
+                        visualizzaOpzione: false,
+                        visualizzato: false
                     })
     
                     // mi serve per far comparire 'Sta scrivendo...'

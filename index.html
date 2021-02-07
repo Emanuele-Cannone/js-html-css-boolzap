@@ -53,14 +53,27 @@
 
                 <ul>
                     <li v-if="chatAttiva.visible" class="chat debug" v-for="(chatAttiva, index) in contatti" @click="visualizzaChat(index)">
+                        
                         <div class="partesx">
                             <img :src="chatAttiva.immagine" :alt="chatAttiva.nome">
                         </div>
-                        <div class="partedx">
+                        
+                        <div class="partecc">
                             <div class="capitalize">{{chatAttiva.nome}}</div>
                             <div v-if="contatti[index].scrivendo" class="lastMex">Sta scrivendo...</div>
                             <div v-else class="lastMex"><span><i class="fas fa-check"></i></span>{{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}</div>
                         </div>
+
+                        <div class="partedx">
+                            <div class="orarioLeft">
+                                ora
+                            </div>
+
+                            <div class="pallino" v-for="(element, index) in contatti[utenteSelezionato].conversazioni" v-if="!chatAttiva.conversazioni[chatAttiva.conversazioni.length - 1].visualizzato">
+                                test
+                            </div>
+                        </div>
+
                     </li>
                 </ul>
 

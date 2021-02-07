@@ -202,11 +202,21 @@ button i{
     align-items: center;
 }
 
-.partedx{
+.partecc{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    flex-grow: 1;
+}
+
+.partedx{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30px; */
+    position: relative;
 }
 
 .lastMex{
@@ -218,6 +228,30 @@ button i{
 .lastMex span{
     padding-right: 3px;
 }
+
+.pallino{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: red;
+    content: "1";
+    color: black;
+    text-align: center;
+
+    position: absolute;
+    right: 14px;
+    bottom: 15px;
+    line-height: 30px;
+    vertical-align: center;
+}
+
+.orarioLeft{
+    position: absolute;
+    right: 18px;
+    top: 10px;
+}
+
+
 
 
 /* rightside */
