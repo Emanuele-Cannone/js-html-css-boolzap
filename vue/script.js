@@ -18,6 +18,7 @@ var app = new Vue({
         visualizzaOpzione: false, // mi serve per inizializzare a false la finestra opzionale
         online: false, // mi serve inizializzarlo false per la scritta 'Online' sul contatto che sta per rispondere
         visualizzato: true, // mi serve inizializzarlo false per la notifica su ogni visualizzato
+        messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
         contatti: [
             {
             immagine: 'img/jack.jpg',
@@ -261,6 +262,10 @@ var app = new Vue({
 
             // mi serve per cambiare il booleano dell'ultimo messaggio
             this.contatti[this.utenteSelezionato].conversazioni[this.contatti[this.utenteSelezionato].conversazioni.length - 1].visualizzato = true;
+
+            this.messaggiNonVisti.splice(0);
+            console.log(this.messaggiNonVisti);
+            
             
 
         },
@@ -290,20 +295,24 @@ var app = new Vue({
 
                         this.contatti[index].conversazioni.push({
                             // impostazione di un messaggio ricevuto
-                            data: '07:31',
+                            data: moment().locale('it').format('LT'),
                             testo: 'ok',
                             tipo: 'ricevuto',
                             visualizzaOpzione: false,
                             visualizzato: false
                         })
 
+                        
+                        
                         // mi serve per far comparire 'Sta scrivendo...'
                         this.contatti[index].scrivendo = false;
                         // console.log(this.contatti[index].scrivendo);
-
-
+                        
+                        this.messaggiNonVisti.push(8);
+                        console.log(this.messaggiNonVisti.length);
+                        
                         setTimeout(() => {
-
+                            
                             // mi serve per far scomparire 'Online'
                             this.contatti[index].online = false;
                             
@@ -327,7 +336,6 @@ var app = new Vue({
 
             }, 3000);
 
-                
         },
 
         ricercaChat(){
@@ -384,6 +392,8 @@ var app = new Vue({
         
         // mi serve per generare un index casuale da 0 compreso fino alla lunghezza dell'array
         numeroCasuale = Math.ceil(Math.random() * this.contatti.length - 1);
+
+        console.log(this.messaggiNonVisti);
         
         
         // +++++ messaggio casuale +++++
@@ -399,13 +409,17 @@ var app = new Vue({
             
                     this.contatti[numeroCasuale].conversazioni.push({
                         // impostazione di un messaggio ricevuto
-                        data: '07:31',
+                        data: moment().locale('it').format('LT'),
                         testo: 'Ciao, sei ancora al pc?',
                         tipo: 'ricevuto',
                         visualizzaOpzione: false,
                         visualizzato: false
                     })
-    
+
+                    
+                    this.messaggiNonVisti.push(8);
+                    console.log(this.messaggiNonVisti.length);
+
                     // mi serve per far comparire 'Sta scrivendo...'
                     this.contatti[numeroCasuale].scrivendo = false;
 
@@ -432,6 +446,8 @@ var app = new Vue({
 
     
         // +++++ fine messaggio casuale +++++
+
+
     }
 
     

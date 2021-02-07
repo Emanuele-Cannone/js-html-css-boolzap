@@ -64,8 +64,16 @@ body{
     background-color: blue;
 }
 
+.red{
+    background-color: red;
+}
+
 .pink{
     background-color: pink;
+}
+
+.green{
+    background-color: green;
 }
 
 .lightyellow{
