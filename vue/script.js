@@ -18,7 +18,7 @@ var app = new Vue({
         visualizzaOpzione: false, // mi serve per inizializzare a false la finestra opzionale
         online: false, // mi serve inizializzarlo false per la scritta 'Online' sul contatto che sta per rispondere
         visualizzato: true, // mi serve inizializzarlo false per la notifica su ogni visualizzato
-        messaggiNonVisti: [], // mi serve inizializzarlo vuoto per il numero delle notifiche
+        orarioAttuale: moment().locale('it').format('LT'), // mi serve pre prendere l'orario attuale
         contatti: [
             {
             immagine: 'img/jack.jpg',
@@ -273,6 +273,7 @@ var app = new Vue({
                 
                 this.contatti[this.utenteSelezionato].messaggiNonVisti.splice(0);
             }
+
             console.log(this.messaggiNonVisti);
             
             
@@ -282,7 +283,7 @@ var app = new Vue({
         scambioMessaggi(index){
             // impostazione di un messaggio inviato dove il testo è preso dal v-model
             this.contatti[index].conversazioni.push({
-                data: moment().locale('it').format('LT'),
+                data: this.orarioAttuale,
                 testo : this.mexChat,
                 tipo : 'inviato',
                 visualizzaOpzione: false,
@@ -304,21 +305,22 @@ var app = new Vue({
 
                         this.contatti[index].conversazioni.push({
                             // impostazione di un messaggio ricevuto
-                            data: moment().locale('it').format('LT'),
+                            data: this.orarioAttuale,
                             testo: 'ok',
                             tipo: 'ricevuto',
                             visualizzaOpzione: false,
                             visualizzato: false
                         })
-
                         
-                        
+                
                         // mi serve per far comparire 'Sta scrivendo...'
                         this.contatti[index].scrivendo = false;
                         // console.log(this.contatti[index].scrivendo);
                         
+                        // mi serve per riempire l'array dove prendo le notifiche
                         this.contatti[index].messaggiNonVisti.push(8);
-                        console.log(this.contatti[index].messaggiNonVisti.length);
+                        // console.log(this.contatti[index].messaggiNonVisti.length);
+                
                         
                         setTimeout(() => {
                             
@@ -418,7 +420,7 @@ var app = new Vue({
             
                     this.contatti[numeroCasuale].conversazioni.push({
                         // impostazione di un messaggio ricevuto
-                        data: moment().locale('it').format('LT'),
+                        data: this.orarioAttuale,
                         testo: 'Ciao, sei ancora al pc?',
                         tipo: 'ricevuto',
                         visualizzaOpzione: false,
@@ -426,12 +428,14 @@ var app = new Vue({
                     })
 
                     
+                    // mi serve per far comparire 'Sta scrivendo...'
+                    this.contatti[numeroCasuale].scrivendo = false;
+                    
+                    // mi serve per riempire l'array dove prendo le notifiche
                     this.contatti[numeroCasuale].messaggiNonVisti.push(8);
                     // console.log(this.messaggiNonVisti.length);
 
-                    // mi serve per far comparire 'Sta scrivendo...'
-                    this.contatti[numeroCasuale].scrivendo = false;
-
+                    
                     setTimeout(() => {
 
                         // mi serve per far scomparire 'Online'

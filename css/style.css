@@ -92,7 +92,7 @@ body{
 /* lato sinistro */
 .leftside{
     float: left;
-    width: 25%;
+    width: 20%;
     height: 100%;
     background-color: #fff;
 }
@@ -296,6 +296,10 @@ button i{
     padding-top: 3px;
 }
 
+.ultimoaccesso span{
+    padding: 0;
+}
+
 .headerright .icone i{
     padding: 0 15px;
     color: #b1b1b1;
@@ -378,6 +382,10 @@ button i{
 
 #eliminato{
     color: rgba(150, 150, 150, 0.705);
+}
+
+#blue{
+    color: #1acbf5;
 }
 
 

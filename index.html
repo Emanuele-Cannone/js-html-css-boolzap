@@ -94,7 +94,12 @@
                             <div class="capitalize">{{contatti[utenteSelezionato].nome}}</div>
                             <div v-if="contatti[utenteSelezionato].scrivendo" class="ultimoaccesso">Sta scrivendo...</div>
                             <div v-else-if="contatti[utenteSelezionato].online" class="ultimoaccesso">Online</div>
-                            <div v-else class="ultimoaccesso">Ultimo accesso oggi alle {{contatti[utenteSelezionato].conversazioni[this.contatti[this.utenteSelezionato].conversazioni.length - 1].data}}</div>
+                            <div v-else class="ultimoaccesso">
+
+                                <span v-if=" contatti[utenteSelezionato].conversazioni[this.contatti[this.utenteSelezionato].conversazioni.length - 1].visualizzato " >Ultimo accesso oggi alle {{contatti[utenteSelezionato].conversazioni[this.contatti[this.utenteSelezionato].conversazioni.length - 1].data}}</span>
+                                <span v-else>Ultimo accesso oggi alle {{ this.orarioAttuale }}</span>
+                                
+                            </div>
                         </div>
                     </div>
                     <div class="icone">
@@ -111,7 +116,7 @@
 
                     <!-- invio - arrivo messaggi -->
                     <li class="mex" :class="(element.tipo == 'inviato') ? 'inviato' : 'ricevuto' " :id="(element.testo === 'Hai eliminato questo messaggio') ? 'eliminato' : ' ' ">{{element.testo}} 
-                        <div class="orario">{{element.data}}<span><i v-if=" element.tipo == 'inviato' " class="fas fa-check"></i></span><span @click="option(contatti[utenteSelezionato].conversazioni, index)" class="opzione"><i class="fas fa-chevron-down"></i></span></div>
+                        <div class="orario">{{element.data}}<span :id=" (contatti[utenteSelezionato].conversazioni[contatti[utenteSelezionato].conversazioni.length - 1].visualizzato ) ? 'blue' : 'null' " ><i v-if=" element.tipo == 'inviato' " class="fas fa-check"></i></span><span @click="option(contatti[utenteSelezionato].conversazioni, index)" class="opzione"><i class="fas fa-chevron-down"></i></span></div>
                     </li>
 
                     <!-- opzione messaggio -->
