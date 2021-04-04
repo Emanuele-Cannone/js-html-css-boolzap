@@ -423,7 +423,7 @@ var app = new Vue({
         scambioMessaggi(index){
             // impostazione di un messaggio inviato dove il testo è preso dal v-model
             this.contatti[index].conversazioni.push({
-                data: this.orarioAttuale,
+                data: moment().locale('it').format('LT'),
                 testo : this.mexChat,
                 tipo : 'inviato',
                 visualizzaOpzione: false,
@@ -447,7 +447,7 @@ var app = new Vue({
 
                         this.contatti[index].conversazioni.push({
                             // impostazione di un messaggio ricevuto
-                            data: this.orarioAttuale,
+                            data: moment().locale('it').format('LT'),
                             testo: 'ok',
                             tipo: 'ricevuto',
                             visualizzaOpzione: false,
@@ -568,7 +568,7 @@ var app = new Vue({
             
                     this.contatti[numeroCasuale].conversazioni.push({
                         // impostazione di un messaggio ricevuto
-                        data: this.orarioAttuale,
+                        data: moment().locale('it').format('LT'),
                         testo: 'Ciao, sei ancora al pc?',
                         tipo: 'ricevuto',
                         visualizzaOpzione: false,
