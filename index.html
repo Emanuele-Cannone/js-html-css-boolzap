@@ -7,7 +7,8 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js" integrity="sha512-LGXaggshOkD/at6PFNcp2V2unf9LzFq6LE+sChH7ceMTDP0g2kn6Vxwgg7wkPP7AAtX+lmPqPdxB47A0Nz0cMQ==" crossorigin="anonymous"></script>
-    <title>Boolzap</title>
+    <link rel="shortcut icon" href="img/favicon-64x64.ico" type="image/x-icon">
+    <title>BoolzApp</title>
 </head>
 <body>
 
@@ -22,7 +23,7 @@
                 <div class="titolo">
                     <div class="nomeutente">
                         <img src="img/emanuele.jpg" alt="mioAvatar"> 
-                        <span class="capitalize">Emanuele Cannone</span> 
+                        <span class="capitalize">Emanuele Cannone </span> 
                     </div>
                     <div class="icone">
                         <i class="fas fa-circle-notch" title="Stato"></i>
@@ -35,11 +36,14 @@
             <!-- notifiche -->
             <div class="notifiche lightblue">
                 <div class="campanello">
-                    <i class="fas fa-bell-slash"></i>
+                    <i v-if="sceltaNotifiche" class="fas fa-bell-slash"></i>
+                    <i v-else class="fas fa-bell"></i>
                 </div>
                 <div>
-                    <p>Ricevi notifiche di nuovi messaggi</p>
-                    <a href="#">Attiva notifiche desktop</a>
+                    <p v-if="sceltaNotifiche">Ricevi notifiche di nuovi messaggi</p>
+                    <p v-else>Non ricevere notifiche di nuovi messaggi</p>
+                    <a @click="attivaNotifiche()" v-if="sceltaNotifiche" href="#">Attiva notifiche desktop</a>
+                    <a @click="attivaNotifiche()" v-else href="#">Disattiva notifiche desktop</a>
                 </div>
             </div>
 
@@ -62,7 +66,12 @@
                         <div class="partecc">
                             <div class="capitalize">{{chatAttiva.nome}}</div>
                             <div v-if="contatti[index].scrivendo" class="lastMex">Sta scrivendo...</div>
-                            <div v-else class="lastMex anteprima" :id="(!chatAttiva.conversazioni[chatAttiva.conversazioni.length - 1].visualizzato) ? 'daVedere' : 'null' "><span><i v-if=" chatAttiva.conversazioni[chatAttiva.conversazioni.length - 1].tipo == 'inviato' " class="fas fa-check"></i></span>{{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}</div>
+                            <div v-else class="lastMex anteprima" :id="(!chatAttiva.conversazioni[chatAttiva.conversazioni.length - 1].visualizzato) ? 'daVedere' : 'null' ">
+
+                                {{chatAttiva.conversazioni[chatAttiva.conversazioni.length -1].testo}}
+                            
+                            </div>
+                        
                         </div>
 
                         <div class="partedx">
@@ -116,7 +125,17 @@
 
                     <!-- invio - arrivo messaggi -->
                     <li class="mex" :class="(element.tipo == 'inviato') ? 'inviato' : 'ricevuto' " :id="(element.testo === 'Hai eliminato questo messaggio') ? 'eliminato' : ' ' ">{{element.testo}} 
-                        <div class="orario">{{element.data}}<span :id=" (contatti[utenteSelezionato].conversazioni[contatti[utenteSelezionato].conversazioni.length - 1].visualizzato ) ? 'blue' : 'null' " ><i v-if=" element.tipo == 'inviato' " class="fas fa-check"></i></span><span @click="option(contatti[utenteSelezionato].conversazioni, index)" class="opzione"><i class="fas fa-chevron-down"></i></span></div>
+                        
+                        <div class="orario">{{element.data}}
+                        
+                            <span class="spunte">
+                                <i v-if=" element.tipo == 'inviato' " class="fas fa-check" :class="(element.tipo == 'inviato' && element.spunta) ? 'f-blue' : ' ' "></i>
+                                <i v-if=" element.tipo == 'inviato' " class="fas fa-check" :class="(element.tipo == 'inviato' && element.spunta) ? 'f-blue' : ' ' "></i>
+                            </span>
+                            <span @click="option(contatti[utenteSelezionato].conversazioni, index)" class="opzione"><i class="fas fa-chevron-down"></i></span>
+                        
+                        </div>
+                    
                     </li>
 
                     <!-- opzione messaggio -->
@@ -145,6 +164,16 @@
             </div>
 
         </div>
+
+
+        <!-- FAI IN MODO CHE L'ORARIO DEL CONTATTO SI MODIFICHI SOLO ALLO STATO ONLINE E NON ALLA RICEZIONE DEL MESSAGGIO -->
+            <!-- PER FARLO SALVA UNA VARIABILE 'ULTIMOONLINE' CON L'ORARIO DI QUANDO E' ONLINE E USALA PER CAMBIARE L'ORARIO A RIGA 107 -->
+                <!-- SE contatti[utenteSelezionato].online ALLORA THIS.ORARIOATTUALE = ULTIMOONLINE -->
+
+
+        <!-- INSERISCI LA SPUNTA BLU ALLO STATO ONLINE DEL CONTATTO -->
+        <!-- INSERISCI LA DARK MODE -->
+
         
     </div>
 
